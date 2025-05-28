@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 29 28 21; /* #1d1c15 */
+    --foreground: 208 192 162; /* #d0c0a2 */
+    --card: 29 28 21;
+    --card-foreground: 208 192 162;
+    --popover: 29 28 21;
+    --popover-foreground: 208 192 162;
+    --primary: 208 192 162; /* Gold accent */
+    --primary-foreground: 29 28 21;
+    --secondary: 45 51 51; /* #2d3333 */
+    --secondary-foreground: 208 192 162;
+    --muted: 45 51 51;
+    --muted-foreground: 156 163 175;
+    --accent: 67 102 110; /* #436e6e */
+    --accent-foreground: 208 192 162;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 67 102 110;
+    --input: 45 51 51;
+    --ring: 208 192 162;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(29 28 21);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(67 102 110);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(208 192 162);
+}
+
+/* Smooth animations */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hero gradient background */
+.hero-gradient {
+  background: radial-gradient(ellipse at center, rgba(67, 102, 110, 0.15) 0%, rgba(29, 28, 21, 1) 70%);
+}
+
+/* Grid background pattern */
+.grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(67, 102, 110, 0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Masonry grid for image gallery */
+.masonry {
+  column-count: 4;
+  column-gap: 1rem;
+  column-fill: balance;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .masonry {
+    column-count: 1;
+  }
+}
